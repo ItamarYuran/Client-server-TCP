@@ -1,0 +1,3 @@
+/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles/client.dir
+/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles/edit_cache.dir
+/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles/rebuild_cache.dir
