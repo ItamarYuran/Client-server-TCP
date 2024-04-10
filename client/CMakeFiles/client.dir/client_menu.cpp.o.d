@@ -1074,13 +1074,15 @@ CMakeFiles/client.dir/client_menu.cpp.o: \
   /usr/local/include/cryptopp/oaep.h /usr/local/include/cryptopp/sha.h \
   /usr/local/include/cryptopp/iterhash.h \
   /usr/local/include/cryptopp/emsa2.h /usr/local/include/cryptopp/asn.h \
+  /usr/local/include/cryptopp/hex.h \
+  /usr/local/include/cryptopp/basecode.h \
+  /usr/local/include/cryptopp/osrng.h \
+  /usr/local/include/cryptopp/randpool.h \
   /usr/local/include/cryptopp/aes.h \
   /usr/local/include/cryptopp/rijndael.h \
   /usr/local/include/cryptopp/seckey.h \
-  /usr/local/include/cryptopp/base64.h \
-  /usr/local/include/cryptopp/basecode.h \
-  /usr/local/include/cryptopp/files.h \
-  /usr/local/include/cryptopp/osrng.h \
-  /usr/local/include/cryptopp/randpool.h \
   /usr/local/include/cryptopp/hkdf.h /usr/local/include/cryptopp/hmac.h \
-  /usr/local/include/cryptopp/rng.h
+  /usr/local/include/cryptopp/rng.h /usr/local/opt/zlib/include/zlib.h \
+  /usr/local/opt/zlib/include/zconf.h \
+  /usr/local/include/cryptopp/base64.h \
+  /usr/local/include/cryptopp/files.h

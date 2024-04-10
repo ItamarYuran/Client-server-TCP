@@ -40,10 +40,12 @@ CMakeFiles/client.dir/client.cpp.o: client.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/pointer_traits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/utilities.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__mutex_base \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__nullptr \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__split_buffer \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__threading_support \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tree \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tuple \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__undef_macros \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/algorithm \
@@ -72,6 +74,7 @@ CMakeFiles/client.dir/client.cpp.o: client.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/exception \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/filesystem \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/forward_list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/future \
@@ -84,12 +87,15 @@ CMakeFiles/client.dir/client.cpp.o: client.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iterator \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/limits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/memory \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/mutex \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/new \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ratio \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/shared_mutex \
@@ -296,6 +302,8 @@ CMakeFiles/client.dir/client.cpp.o: client.cpp \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stdint.h \
+  client.hpp \
+  encryption.hpp \
   /usr/local/include/boost/align/aligned_alloc.hpp \
   /usr/local/include/boost/align/detail/aligned_alloc_posix.hpp \
   /usr/local/include/boost/align/detail/is_alignment.hpp \
@@ -1031,7 +1039,57 @@ CMakeFiles/client.dir/client.cpp.o: client.cpp \
   /usr/local/include/boost/type_traits/is_integral.hpp \
   /usr/local/include/boost/type_traits/is_same.hpp \
   /usr/local/include/boost/type_traits/remove_cv.hpp \
-  /usr/local/include/boost/version.hpp
+  /usr/local/include/boost/version.hpp \
+  /usr/local/include/cryptopp/aes.h \
+  /usr/local/include/cryptopp/algebra.h \
+  /usr/local/include/cryptopp/algparam.h \
+  /usr/local/include/cryptopp/allocate.h \
+  /usr/local/include/cryptopp/argnames.h \
+  /usr/local/include/cryptopp/asn.h \
+  /usr/local/include/cryptopp/basecode.h \
+  /usr/local/include/cryptopp/config.h \
+  /usr/local/include/cryptopp/config_align.h \
+  /usr/local/include/cryptopp/config_asm.h \
+  /usr/local/include/cryptopp/config_cpu.h \
+  /usr/local/include/cryptopp/config_cxx.h \
+  /usr/local/include/cryptopp/config_dll.h \
+  /usr/local/include/cryptopp/config_int.h \
+  /usr/local/include/cryptopp/config_misc.h \
+  /usr/local/include/cryptopp/config_ns.h \
+  /usr/local/include/cryptopp/config_os.h \
+  /usr/local/include/cryptopp/config_ver.h \
+  /usr/local/include/cryptopp/cryptlib.h \
+  /usr/local/include/cryptopp/emsa2.h \
+  /usr/local/include/cryptopp/eprecomp.h \
+  /usr/local/include/cryptopp/filters.h \
+  /usr/local/include/cryptopp/fips140.h \
+  /usr/local/include/cryptopp/hashfwd.h \
+  /usr/local/include/cryptopp/hex.h \
+  /usr/local/include/cryptopp/hkdf.h \
+  /usr/local/include/cryptopp/hmac.h \
+  /usr/local/include/cryptopp/integer.h \
+  /usr/local/include/cryptopp/iterhash.h \
+  /usr/local/include/cryptopp/misc.h \
+  /usr/local/include/cryptopp/modarith.h \
+  /usr/local/include/cryptopp/oaep.h \
+  /usr/local/include/cryptopp/osrng.h \
+  /usr/local/include/cryptopp/pkcspad.h \
+  /usr/local/include/cryptopp/pubkey.h \
+  /usr/local/include/cryptopp/queue.h \
+  /usr/local/include/cryptopp/randpool.h \
+  /usr/local/include/cryptopp/rijndael.h \
+  /usr/local/include/cryptopp/rng.h \
+  /usr/local/include/cryptopp/rsa.h \
+  /usr/local/include/cryptopp/secblock.h \
+  /usr/local/include/cryptopp/secblockfwd.h \
+  /usr/local/include/cryptopp/seckey.h \
+  /usr/local/include/cryptopp/sha.h \
+  /usr/local/include/cryptopp/simple.h \
+  /usr/local/include/cryptopp/smartptr.h \
+  /usr/local/include/cryptopp/stdcpp.h \
+  /usr/local/include/cryptopp/trap.h \
+  /usr/local/opt/zlib/include/zconf.h \
+  /usr/local/opt/zlib/include/zlib.h
 
 CMakeFiles/client.dir/client_menu.cpp.o: client_menu.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/Availability.h \
@@ -2098,6 +2156,7 @@ CMakeFiles/client.dir/client_menu.cpp.o: client_menu.cpp \
   /usr/local/include/cryptopp/filters.h \
   /usr/local/include/cryptopp/fips140.h \
   /usr/local/include/cryptopp/hashfwd.h \
+  /usr/local/include/cryptopp/hex.h \
   /usr/local/include/cryptopp/hkdf.h \
   /usr/local/include/cryptopp/hmac.h \
   /usr/local/include/cryptopp/integer.h \
@@ -2120,7 +2179,9 @@ CMakeFiles/client.dir/client_menu.cpp.o: client_menu.cpp \
   /usr/local/include/cryptopp/simple.h \
   /usr/local/include/cryptopp/smartptr.h \
   /usr/local/include/cryptopp/stdcpp.h \
-  /usr/local/include/cryptopp/trap.h
+  /usr/local/include/cryptopp/trap.h \
+  /usr/local/opt/zlib/include/zconf.h \
+  /usr/local/opt/zlib/include/zlib.h
 
 CMakeFiles/client.dir/encryption.cpp.o: encryption.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/Availability.h \
@@ -2189,9 +2250,7 @@ CMakeFiles/client.dir/encryption.cpp.o: encryption.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/exception \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/filesystem \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/forward_list \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/initializer_list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip \
@@ -2213,7 +2272,7 @@ CMakeFiles/client.dir/encryption.cpp.o: encryption.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ratio \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stack \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/sstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stddef.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdexcept \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdint.h \
@@ -2391,10 +2450,10 @@ CMakeFiles/client.dir/encryption.cpp.o: encryption.cpp \
   /usr/local/include/cryptopp/cryptlib.h \
   /usr/local/include/cryptopp/emsa2.h \
   /usr/local/include/cryptopp/eprecomp.h \
-  /usr/local/include/cryptopp/files.h \
   /usr/local/include/cryptopp/filters.h \
   /usr/local/include/cryptopp/fips140.h \
   /usr/local/include/cryptopp/hashfwd.h \
+  /usr/local/include/cryptopp/hex.h \
   /usr/local/include/cryptopp/hkdf.h \
   /usr/local/include/cryptopp/hmac.h \
   /usr/local/include/cryptopp/integer.h \
@@ -2424,6 +2483,12 @@ CMakeFiles/client.dir/encryption.cpp.o: encryption.cpp \
 
 encryption.cpp:
 
+/usr/local/include/cryptopp/files.h:
+
+client_menu.cpp:
+
+/usr/local/opt/zlib/include/zconf.h:
+
 /usr/local/include/cryptopp/stdcpp.h:
 
 /usr/local/include/cryptopp/smartptr.h:
@@ -2446,9 +2511,9 @@ encryption.cpp:
 
 /usr/local/include/cryptopp/hkdf.h:
 
-/usr/local/include/cryptopp/hashfwd.h:
+/usr/local/include/cryptopp/hex.h:
 
-/usr/local/include/cryptopp/files.h:
+/usr/local/include/cryptopp/hashfwd.h:
 
 /usr/local/include/cryptopp/emsa2.h:
 
@@ -2473,20 +2538,6 @@ encryption.cpp:
 /usr/local/include/cryptopp/algebra.h:
 
 /usr/local/include/cryptopp/aes.h:
-
-encryption.hpp:
-
-/usr/local/include/cryptopp/eprecomp.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/optional:
-
-/usr/local/include/cryptopp/trap.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/map:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tree:
-
-client_menu.cpp:
 
 /usr/local/include/boost/version.hpp:
 
@@ -2770,25 +2821,23 @@ client_menu.cpp:
 
 /usr/local/include/boost/mpl/aux_/config/has_xxx.hpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle:
-
-/usr/local/include/boost/mpl/aux_/config/has_apply.hpp:
-
 /usr/local/include/boost/mpl/aux_/value_wknd.hpp:
 
 /usr/local/include/boost/mpl/aux_/msvc_never_true.hpp:
 
 /usr/local/include/boost/mpl/aux_/config/dtp.hpp:
 
-/usr/local/include/boost/preprocessor/list/adt.hpp:
+/usr/local/include/boost/mpl/aux_/config/ctps.hpp:
 
-/usr/local/include/boost/asio/detail/descriptor_ops.hpp:
-
-/usr/local/include/boost/mpl/aux_/config/arrays.hpp:
+/usr/local/include/boost/mpl/aux_/config/compiler.hpp:
 
 /usr/local/include/boost/mpl/aux_/config/adl.hpp:
 
 /usr/local/include/boost/mpl/aux_/arity.hpp:
+
+/usr/local/include/boost/preprocessor/variadic/has_opt.hpp:
+
+/usr/local/include/boost/mpl/aux_/arithmetic_op.hpp:
 
 /usr/local/include/boost/mpl/apply_wrap.hpp:
 
@@ -2807,8 +2856,6 @@ client_menu.cpp:
 /usr/local/include/boost/date_time/time.hpp:
 
 /usr/local/include/boost/date_time/posix_time/ptime.hpp:
-
-/usr/local/include/boost/date_time/posix_time/posix_time_system.hpp:
 
 /usr/local/include/boost/date_time/posix_time/posix_time_duration.hpp:
 
@@ -2967,6 +3014,8 @@ client_menu.cpp:
 /usr/local/include/boost/asio/post.hpp:
 
 /usr/local/include/boost/asio/posix/stream_descriptor.hpp:
+
+/usr/local/opt/zlib/include/zlib.h:
 
 /usr/local/include/boost/asio/posix/descriptor.hpp:
 
@@ -3356,8 +3405,6 @@ client_menu.cpp:
 
 /usr/local/include/boost/asio/detail/non_const_lvalue.hpp:
 
-/usr/local/include/boost/mpl/aux_/config/compiler.hpp:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/climits:
 
 /usr/local/include/boost/asio/detail/mutex.hpp:
@@ -3476,9 +3523,9 @@ client_menu.cpp:
 
 /usr/local/include/boost/asio/traits/execute_member.hpp:
 
-/usr/local/include/boost/date_time/gregorian/greg_date.hpp:
-
 /usr/local/include/boost/asio/cancellation_type.hpp:
+
+/usr/local/include/boost/date_time/gregorian/greg_date.hpp:
 
 /usr/local/include/boost/asio/detail/handler_type_requirements.hpp:
 
@@ -3495,6 +3542,14 @@ client_menu.cpp:
 /usr/local/include/boost/preprocessor/stringize.hpp:
 
 /usr/local/include/boost/asio/detail/functional.hpp:
+
+/usr/local/include/boost/asio/detail/executor_op.hpp:
+
+/usr/local/include/boost/asio/detail/push_options.hpp:
+
+/usr/local/include/boost/asio/detail/impl/posix_thread.ipp:
+
+/usr/local/include/boost/asio/detail/executor_function.hpp:
 
 /usr/local/include/boost/mpl/aux_/has_tag.hpp:
 
@@ -3524,9 +3579,9 @@ client_menu.cpp:
 
 /usr/local/include/boost/asio/detail/conditionally_enabled_mutex.hpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ssize_t.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/utilities.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ssize_t.h:
 
 /usr/local/include/boost/assert/source_location.hpp:
 
@@ -3571,8 +3626,6 @@ client_menu.cpp:
 /usr/local/include/boost/asio/deadline_timer.hpp:
 
 /usr/local/include/boost/asio/coroutine.hpp:
-
-/usr/local/include/boost/asio/detail/executor_op.hpp:
 
 /usr/local/include/boost/asio/basic_file.hpp:
 
@@ -3714,6 +3767,12 @@ client_menu.cpp:
 
 /usr/local/include/boost/asio/append.hpp:
 
+/usr/local/include/boost/preprocessor/list/adt.hpp:
+
+/usr/local/include/boost/mpl/aux_/config/arrays.hpp:
+
+/usr/local/include/boost/asio/detail/descriptor_ops.hpp:
+
 /usr/local/include/boost/align/detail/is_alignment.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_wctype.h:
@@ -3761,6 +3820,12 @@ client_menu.cpp:
 /usr/local/include/boost/asio/execution/occupancy.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_char.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/libkern/_OSByteOrder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_posix_vdisable.h:
+
+client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/types.h:
 
@@ -3812,10 +3877,6 @@ client_menu.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_def.h:
 
-/usr/local/include/boost/preprocessor/variadic/has_opt.hpp:
-
-/usr/local/include/boost/mpl/aux_/arithmetic_op.hpp:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/un.h:
 
 /usr/local/include/boost/mpl/integral_c_fwd.hpp:
@@ -3825,6 +3886,8 @@ client_menu.cpp:
 /usr/local/include/boost/asio/traits/require_concept_member.hpp:
 
 /usr/local/include/boost/asio/buffered_write_stream.hpp:
+
+encryption.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/poll.h:
 
@@ -3938,10 +4001,6 @@ client_menu.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_rune_t.h:
 
-client.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_posix_vdisable.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_pid_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/signal.h:
@@ -3971,8 +4030,6 @@ client.hpp:
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_null.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/limits.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mode_t.h:
 
 /usr/local/include/boost/asio/ip/impl/basic_endpoint.hpp:
 
@@ -4006,15 +4063,11 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino_t.h:
 
-/usr/local/include/boost/preprocessor/debug/error.hpp:
+/usr/local/include/boost/mpl/aux_/config/has_apply.hpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uint64_t.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle:
 
-/usr/local/include/boost/asio/ip/impl/address.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_errno_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_id_t.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsblkcnt_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/net/net_kev.h:
 
@@ -4025,14 +4078,6 @@ client.hpp:
 /usr/local/include/cryptopp/seckey.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_isset.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_stdio.h:
-
-/usr/local/include/boost/asio/impl/write.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/net/if.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_gid_t.h:
 
 /usr/local/include/boost/preprocessor/tuple/detail/is_single_return.hpp:
 
@@ -4061,10 +4106,6 @@ client.hpp:
 /usr/local/include/boost/asio/detail/impl/reactive_socket_service_base.ipp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_caddr_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/fcntl.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino64_t.h:
 
@@ -4178,19 +4219,13 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/netdb.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_id_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_errno_t.h:
+
 /usr/local/include/boost/smart_ptr/detail/spinlock.hpp:
 
 /usr/local/include/boost/asio/connect_pipe.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/math.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_uuid_t.h:
-
-/usr/local/include/boost/preprocessor/variadic/size.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/limits:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_filesec_t.h:
 
 /usr/local/include/boost/asio/detail/socket_types.hpp:
 
@@ -4252,6 +4287,8 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/_param.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_stdio.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__locale:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/istream:
@@ -4259,6 +4296,10 @@ client.hpp:
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_set.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/type_traits:
+
+/usr/local/include/cryptopp/trap.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/map:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/string:
 
@@ -4272,16 +4313,6 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/string.h:
 
-/usr/local/include/boost/mpl/void.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/typeinfo:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uintmax_t.h:
-
-/usr/local/include/cryptopp/asn.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_addr_t.h:
-
 /usr/local/include/boost/asio/impl/system_executor.hpp:
 
 /usr/local/include/boost/asio/impl/connect_pipe.hpp:
@@ -4294,9 +4325,7 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/__stddef_max_align_t.h:
 
-/usr/local/include/boost/asio/detail/handler_cont_helpers.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_types.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/__wctype.h:
 
@@ -4308,9 +4337,19 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tuple:
 
+/usr/local/include/boost/asio/detail/handler_cont_helpers.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/termios.h:
+
 /usr/local/include/boost/asio/detail/timer_scheduler.hpp:
 
 /usr/local/include/boost/asio/basic_socket_iostream.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/math.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/vector:
 
 /usr/local/include/boost/asio/traits/query_free.hpp:
 
@@ -4321,8 +4360,6 @@ client.hpp:
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/AvailabilityMacros.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/libkern/_OSByteOrder.h:
 
 /usr/local/include/boost/asio/traits/require_free.hpp:
 
@@ -4376,6 +4413,12 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ct_rune_t.h:
 
+/usr/local/include/boost/asio/ip/impl/address.hpp:
+
+/usr/local/include/boost/preprocessor/debug/error.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uint64_t.h:
+
 /usr/local/include/boost/asio/impl/any_completion_executor.ipp:
 
 /usr/local/include/boost/preprocessor/detail/auto_rec.hpp:
@@ -4408,6 +4451,16 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/netinet/in.h:
 
+/usr/local/include/cryptopp/asn.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_addr_t.h:
+
+/usr/local/include/boost/mpl/void.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/typeinfo:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uintmax_t.h:
+
 /usr/local/include/boost/asio/posix/descriptor_base.hpp:
 
 /usr/local/include/boost/asio/ip/bad_address_cast.hpp:
@@ -4421,8 +4474,6 @@ client.hpp:
 /usr/local/include/boost/asio/impl/buffered_write_stream.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/chrono:
-
-/usr/local/include/boost/mpl/aux_/config/ctps.hpp:
 
 /usr/local/include/boost/asio/detail/wait_op.hpp:
 
@@ -4438,21 +4489,13 @@ client.hpp:
 
 /usr/local/include/boost/asio/posix/basic_stream_descriptor.hpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_zero.h:
+/usr/local/include/boost/asio/impl/write.hpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__debug:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_gid_t.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/net/if.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/base.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_timeval64.h:
-
-/usr/local/include/boost/asio/detail/push_options.hpp:
-
-/usr/local/include/boost/asio/detail/impl/posix_thread.ipp:
-
-/usr/local/include/boost/asio/detail/executor_function.hpp:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/algorithm:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/sockio.h:
 
@@ -4462,11 +4505,7 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/gethostuuid.h:
 
-/usr/local/include/boost/static_assert.hpp:
-
-/usr/local/include/boost/asio/signal_set.hpp:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/sstream:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tree:
 
 /usr/local/include/boost/asio/impl/executor.ipp:
 
@@ -4484,19 +4523,43 @@ client.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_clock_t.h:
 
-/usr/local/include/boost/asio/execution/bad_executor.hpp:
-
-/usr/local/include/boost/mpl/aux_/comparison_op.hpp:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/pointer_traits.h:
 
 /usr/local/include/boost/asio/basic_socket_streambuf.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
+
+/usr/local/include/boost/mpl/aux_/comparison_op.hpp:
+
+/usr/local/include/boost/asio/execution/bad_executor.hpp:
 
 /usr/local/include/boost/smart_ptr/bad_weak_ptr.hpp:
 
 /usr/local/include/boost/preprocessor/tuple/rem.hpp:
 
 client.cpp:
+
+/usr/local/include/boost/static_assert.hpp:
+
+/usr/local/include/boost/asio/signal_set.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/sstream:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/base.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_timeval64.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_zero.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__debug:
+
+/usr/local/include/cryptopp/eprecomp.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/optional:
+
+/usr/local/include/boost/date_time/posix_time/posix_time_system.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mode_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_ctype.h:
 
@@ -4507,6 +4570,14 @@ client.cpp:
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int32_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/errno.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_uuid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_filesec_t.h:
+
+/usr/local/include/boost/preprocessor/variadic/size.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/limits:
 
 /usr/local/include/boost/date_time/time_duration.hpp:
 
@@ -4534,10 +4605,6 @@ client.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_setsize.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/termios.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsblkcnt_t.h:
-
 /usr/local/include/boost/asio/error.hpp:
 
 /usr/local/include/boost/asio/cancellation_state.hpp:
@@ -4547,8 +4614,6 @@ client.cpp:
 /usr/local/include/boost/preprocessor/repetition/enum_params.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_wctrans_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
 
 /usr/local/include/boost/asio/detail/reactive_socket_service_base.hpp:
 
@@ -4566,8 +4631,6 @@ client.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/net/if_var.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/vector:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdio.h:
 
 /usr/local/include/boost/asio/detail/deadline_timer_service.hpp:
@@ -4582,6 +4645,10 @@ client.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/uio.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/fcntl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/wchar.h:
 
 /usr/local/include/boost/asio/detail/impl/throw_error.ipp:
@@ -4591,8 +4658,6 @@ client.cpp:
 /usr/local/include/boost/date_time/time_defs.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/functional:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/algorithm:
 
 /usr/local/include/boost/asio/write_at.hpp:
 

@@ -46,7 +46,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/usr/local/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Darwin.cmake"
   "/usr/local/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/UnixPaths.cmake"
-  "/usr/local/Cellar/cryptopp/8.9.0/share/cmake/cryptopp/cryptopp-config.cmake"
   )
 
 # The corresponding makefile is:

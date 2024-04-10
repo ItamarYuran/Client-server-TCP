@@ -2,134 +2,147 @@
 import sys
 import traceback
 
-
+import zlib
 import protocol
 import encryption
 import socket
 import struct
+import binascii
 import os
 
 
+import struct
 
-def read_port(file_path) -> int:
-    port = 1256  # default port
-    try:
-        with open(file_path, 'r') as file:
-            file_contents = file.read().strip()  # Remove any leading/trailing whitespace
-            try:
-                port = int(file_contents)
-                if 1 <= port <= 65535:
-                    return port
+class Server():
+    def __init__(self):
+        self.symmetric_key = None
+        self.version = 24
+        self.client_uuid = None
+        self.iv = b'0000000000000000'
+        self.clients = []
+
+    def send_packet(self, connection, version, code, *payload_args):
+        try:
+            # Convert payload arguments to bytes
+            payload_args_bytes = []
+            total_payload_size = 0
+            
+            for arg in payload_args:
+                arg_bytes = None
+                if isinstance(arg, str):
+                    arg_bytes = arg.encode()
+                    payload_args_bytes.append(arg_bytes)
+                    print(f"String Argument: {arg}, Position: {total_payload_size}, Size: {len(arg_bytes)} bytes")
+                elif isinstance(arg, int):
+                    arg_bytes = struct.pack('<I', arg)  # Convert integer to 4-byte little-endian bytes
+                    payload_args_bytes.append(arg_bytes)
+                    print(f"Integer Argument: {arg_bytes}, Position: {total_payload_size}, Size: {len(arg_bytes)} bytes")
                 else:
-                    print("Error: Port number out of valid range (1-65535). Using default port.")
-            except ValueError:
-                print("Error: Invalid port number format in the file. Using default port.")
-    except FileNotFoundError:
-        print(f"Warning: The file '{file_path}' does not exist.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    return port
+                    payload_args_bytes.append(arg)
 
-def generate_uuid():
-    return os.urandom(16)
+                if arg_bytes:
+                    total_payload_size += len(arg_bytes)
 
+            payload = b"".join(payload_args_bytes)
+            header = struct.pack('<BHI', version, code, len(payload))  # < denotes little-endian byte order
 
-def check_client_name(name: str , client_list):
-    signup_validity = True
-    for client in client_list:
-        if client['name'] == name:
-            signup_validity = False
-            break
-    return signup_validity
-
-
-
-def read_client_list(file_path='clients'):
-    data_list = []  
-    try:
-        with open(file_path, 'r') as file:
-            for line in file:
-                line = line.strip()  
-                if not line:
-                    continue  # Skip empty lines
-
-                parts = line.split(':')
-                if len(parts) < 2:
-                    continue  # Skip invalid lines
-
-                # Extract the first three parts as ID, Name, and password_hash
-                ID, Name, password_hash = parts[:3]
-
-                # Concatenate the remaining parts as the last_seen field
-                last_seen = ":".join(parts[3:])
-
-                # Create a dictionary with the extracted information
-                data_dict = {
-                    'client_id': ID,
-                    'name': Name,
-                    'password_hash': password_hash,
-                    'last_seen': last_seen,
-                }
-                data_list.append(data_dict)
-
-    except FileNotFoundError:
-        print(f"Warning: The file '{file_path}' does not exist.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-    return data_list
+            packet = header + payload
+            
+            print("Sending packet...")
+            print("Header:", header)
+            print("Payload:", payload)
+            print("Payload:", len(payload))
+            
+            connection.sendall(packet)
+            
+            print("Packet sent successfully.")
+        except Exception as e:
+            print("Error sending packet:", e)
 
 
+    def compute_checksum(self,data):
+        print("Input data:", data)
+        checksum = zlib.crc32(data) & 0xFFFFFFFF
+        print("Computed checksum:", checksum)
+        return checksum
 
 
-def get_name_and_pass_hash(uuid, file_path='clients'):
-    # Read the file
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
+    def read_port(self,file_path) -> int:
+        port = 1256  # default port
+        try:
+            with open(file_path, 'r') as file:
+                file_contents = file.read().strip()  # Remove any leading/trailing whitespace
+                try:
+                    port = int(file_contents)
+                    if 1 <= port <= 65535:
+                        return port
+                    else:
+                        print("Error: Port number out of valid range (1-65535). Using default port.")
+                except ValueError:
+                    print("Error: Invalid port number format in the file. Using default port.")
+        except FileNotFoundError:
+            print(f"Warning: The file '{file_path}' does not exist.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        return port
 
-    # Iterate over the lines to find the UUID
-    for line in lines:
-        fields = line.strip().split(':')
-        if len(fields) == 4 and fields[0] == uuid:
-            name = fields[1]
-            pass_hash = fields[2]
-            return name, pass_hash
-
-    # If the UUID is not found, return None
-    return None, None
-
-
-def generate_encrypted_key(client_symmetric_key, nonce):
-    # Generate AES key (32 bytes)
-    aes_key = encryption.get_random_bytes(32)
-    encrypted_key_iv = encryption.get_random_bytes(16)
-
-    # Encrypt nonce with the client's symmetric key using AES in CBC mode
-    encrypted_nonce = encryption.encrypt_message(client_symmetric_key, encrypted_key_iv, nonce)
-    encrypted_aes_key = encryption.encrypt_message(client_symmetric_key, encrypted_key_iv, aes_key)
-
-    encrypted_key = {
-        'encrypted_key_iv': encrypted_key_iv,
-        'nonce': encrypted_nonce,
-        'aes_key': encrypted_aes_key
-    }
-    return encrypted_key, aes_key
+    def generate_uuid(self):
+        print('generating uuid')
+        return os.urandom(16)
 
 
-def add_client(client_id, name, hashed_password, timestamp, file_path='clients'):
-    with open(file_path, 'a') as file:
-        # Create the formatted string with the provided information
-        entry = f"{client_id}:{name}:{hashed_password}:{timestamp}\n"
-        file.write(entry)
+    def check_client_name(self,name: str , client_list):
+        signup_validity = True
+        for client in client_list:
+            if str(client).strip() == name.strip():
+                signup_validity = False
+                break
+
+        return signup_validity
+
+
+    def generate_aes_key(self):
+        aes_key = encryption.get_random_bytes(32)
+        return aes_key
+
+    def zero_pad_string(self,input_string, length):
+        if len(input_string) >= length:
+            return input_string
+        padded_string = input_string.ljust(length, '0')
+        return padded_string
+    
+    def get_all_clients(self,filename = 'clients'):
+        clients = []
+
+        try:
+            with open(filename, 'r') as file:
+                # Read each line from the file
+                for line in file:
+                    # Extract the username from the line (assuming each line contains only the username)
+                    username = line.strip()  # Remove leading/trailing whitespace
+                    clients.append(username)
+        except FileNotFoundError:
+            print("Error: Unable to open file", filename)
+        
+        return clients
+    
+    def insert_username(self, username,filename = 'clients'):
+        # Open the file in append mode
+        with open(filename, 'a') as file:
+            # Write the username to the file
+            file.write(username + '\n')
+        
 
 
 if __name__ == "__main__":
     try:
+        
+        server = Server()
+        server.clients = server.get_all_clients()
         # 1. read the port from 'port.info'
-        port = read_port('port.info')
+        port = server.read_port('port.info')
         print(f'waiting in port {port}')
         # 2. check 'clients', if exists load clients that were registered
-        client_list = read_client_list()
 
         # 3. wait for requests from clients
         # Create a socket
@@ -156,50 +169,112 @@ if __name__ == "__main__":
 
                 client_id, version, request_code, payload_size = struct.unpack(header_format, header_data)
                 print(f"Received request code: {request_code}")
+                print(client_id)
+                print(version)
+                print(request_code)
+                print(payload_size)
 
                 # 4. given a request decrypt the request according to the protocol
                 payload_data = b''
                 while len(payload_data) < payload_size:
-                    data = connection.recv(min(4096, payload_size - len(payload_data)))
+                    data = connection.recv(min(1024, payload_size - len(payload_data)))
                     if not data:
                         break
                     payload_data += data
+                
 
                 
                 
                 if request_code == 1025:
                     name = payload_data[:255]
-                    name = name.rstrip(b'\x00').decode('utf-8')  # Remove padding and decode
+                    name = name.rstrip(b'\x00').decode('utf-8')  
 
-                    signup_response = check_client_name(name, client_list)
+                    signup_response = server.check_client_name(name, server.clients)
+                    print('got')
                     if signup_response:
                         RESPONSE_CODE = 1600
-                        client_id = generate_uuid()
-                        print(f"Client ID: {client_id.hex()}")
-                        packet = protocol.create_packet(RESPONSE_CODE, client_id, 'auth', protocol.VERSION, client_id)
-                        add_client(client_id.hex(), name)
+                        uuid = server.generate_uuid()
+                        server.client_uuid = uuid
+                        server.insert_username(name)
+
+                        server.send_packet(connection, version, RESPONSE_CODE, uuid)
                     else:
                         RESPONSE_CODE = 1601
-                        packet = protocol.create_packet(RESPONSE_CODE, client_id, 'auth', protocol.VERSION)
+                        server.send_packet(connection,version,RESPONSE_CODE)
+                        print('didnt add client')
 
-                    connection.sendall(packet)
                 
                 # public key and name
                 elif request_code == 1026:
-                    name, public_key = payload_data[:255],payload_data[255:415]
+                    RESPONSE_CODE = 1602
+                    name, public_key = payload_data[:255], payload_data[255:415]
+                    name = name.rstrip(b'\x00').decode('utf-8')  # Remove padding and decode
+                    symmetric_key = server.generate_aes_key()
+                    server.symmetric_key = symmetric_key
 
-                # reconnecting request
+                    encrypted_key = encryption.rsa_encrypt(symmetric_key, public_key)
+                    print('encrypted_key:', encrypted_key)
+                    
+
+                    server.send_packet(connection, version, RESPONSE_CODE, server.client_uuid, encrypted_key)
+                    
                 elif request_code == 1027:
                     name = payload_data[:255]
                     name = name.rstrip(b'\x00').decode('utf-8')  # Remove padding and decode
-                    if not check_client_name(name,client_list):
+                    if not server.check_client_name(name,server.clients):
                         pass
 
 
 
 
                 elif request_code == 1028:
-                    pass
+                    RESPONSE_CODE = 1603
+
+                    content_size = struct.unpack('<I', payload_data[:4])[0]
+                    # # Unpack original file size (4 bytes, little-endian)
+                    original_file_size = struct.unpack('<I', payload_data[4:8])[0]
+
+                    # # Unpack packet number and total packets (2 bytes each, little-endian)
+                    packet_number, total_packets = struct.unpack('<HH', payload_data[8:12])
+
+                    # # Decode file name (255 bytes)
+                    file_name = payload_data[12:267]
+                    # # Extract message content
+                    message_content = payload_data[267:]
+
+                    try:
+                        dec = encryption.decrypt_message(server.symmetric_key,message_content)
+                        print('decrypted: ',dec)
+
+                    except:
+                        print('something went wrong')
+                    
+                    try:
+                        checksum = server.compute_checksum(message_content)                       
+                        print(checksum)
+                    except:
+                        print('something went wrong')
+                    print('connection: ',connection)
+                    print('server.version: ',server.version)
+                    print('RESPONSE_CODE: ',RESPONSE_CODE)
+                    print('server.client_uuid: ',server.client_uuid)
+                    print('content_size: ',content_size)
+                    print('file_name: ',file_name)
+                    print('checksum: ',checksum)
+                    try:
+                        server.send_packet(connection,server.version,RESPONSE_CODE,server.client_uuid,content_size,file_name,checksum)
+                    except:
+                        print('sent')
+
+
+
+
+
+
+
+                    # print('encrypted: ',enc)
+                    # server.send_packet(connection,server.version,RESPONSE_CODE,message)
+
                 elif request_code == 1029:
                     pass
                 elif request_code == 1030:

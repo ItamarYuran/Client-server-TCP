@@ -125,7 +125,8 @@ client: CMakeFiles/client.dir/client_menu.cpp.o
 client: CMakeFiles/client.dir/encryption.cpp.o
 client: CMakeFiles/client.dir/build.make
 client: /usr/local/Cellar/boost/1.84.0_1/lib/libboost_system-mt.dylib
-client: /usr/local/lib/libcryptopp.dylib
+client: /usr/local/Cellar/cryptopp/8.9.0/lib/libcryptopp.dylib
+client: /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/lib/libz.tbd
 client: CMakeFiles/client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)
