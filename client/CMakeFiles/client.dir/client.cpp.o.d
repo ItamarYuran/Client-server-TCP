@@ -303,6 +303,11 @@ CMakeFiles/client.dir/client.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/gethostuuid.h \
   /usr/local/include/boost/config/detail/suffix.hpp \
   /usr/local/include/boost/config/helper_macros.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/variant \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/any \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/charconv \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/execution \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/filesystem \
   /usr/local/include/boost/config/detail/cxx_composite.hpp \
   /usr/local/include/boost/version.hpp \
   /usr/local/include/boost/asio/execution.hpp \
@@ -332,10 +337,6 @@ CMakeFiles/client.dir/client.cpp.o: \
   /usr/local/include/boost/assert/source_location.hpp \
   /usr/local/include/boost/cstdint.hpp \
   /usr/local/include/boost/config/workaround.hpp \
-  /usr/local/include/boost/align/aligned_alloc.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/AvailabilityMacros.h \
-  /usr/local/include/boost/align/detail/aligned_alloc_posix.hpp \
-  /usr/local/include/boost/align/detail/is_alignment.hpp \
   /usr/local/include/boost/asio/detail/noncopyable.hpp \
   /usr/local/include/boost/asio/detail/recycling_allocator.hpp \
   /usr/local/include/boost/asio/detail/thread_context.hpp \
@@ -422,6 +423,7 @@ CMakeFiles/client.dir/client.cpp.o: \
   /usr/local/include/boost/asio/detail/scoped_lock.hpp \
   /usr/local/include/boost/asio/detail/impl/posix_mutex.ipp \
   /usr/local/include/boost/asio/execution/context.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/experimental/__config \
   /usr/local/include/boost/asio/execution/context_as.hpp \
   /usr/local/include/boost/asio/execution/mapping.hpp \
   /usr/local/include/boost/asio/execution/occupancy.hpp \
@@ -1071,7 +1073,6 @@ CMakeFiles/client.dir/client.cpp.o: \
   /usr/local/include/boost/array.hpp \
   /usr/local/include/boost/core/invoke_swap.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/filesystem \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip \
   /usr/local/include/cryptopp/hex.h \
@@ -1083,4 +1084,6 @@ CMakeFiles/client.dir/client.cpp.o: \
   /usr/local/include/cryptopp/seckey.h \
   /usr/local/include/cryptopp/hkdf.h /usr/local/include/cryptopp/hmac.h \
   /usr/local/include/cryptopp/rng.h /usr/local/opt/zlib/include/zlib.h \
-  /usr/local/opt/zlib/include/zconf.h
+  /usr/local/opt/zlib/include/zconf.h \
+  /usr/local/include/cryptopp/base64.h \
+  /usr/local/include/cryptopp/files.h

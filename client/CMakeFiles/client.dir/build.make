@@ -83,24 +83,10 @@ CMakeFiles/client.dir/client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/client.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/client.cpp" -o CMakeFiles/client.dir/client.cpp.s
 
-CMakeFiles/client.dir/client_menu.cpp.o: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/client_menu.cpp.o: client_menu.cpp
-CMakeFiles/client.dir/client_menu.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/client_menu.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/client_menu.cpp.o -MF CMakeFiles/client.dir/client_menu.cpp.o.d -o CMakeFiles/client.dir/client_menu.cpp.o -c "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/client_menu.cpp"
-
-CMakeFiles/client.dir/client_menu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client.dir/client_menu.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/client_menu.cpp" > CMakeFiles/client.dir/client_menu.cpp.i
-
-CMakeFiles/client.dir/client_menu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/client_menu.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/client_menu.cpp" -o CMakeFiles/client.dir/client_menu.cpp.s
-
 CMakeFiles/client.dir/encryption.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/encryption.cpp.o: encryption.cpp
 CMakeFiles/client.dir/encryption.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/encryption.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/encryption.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/encryption.cpp.o -MF CMakeFiles/client.dir/encryption.cpp.o.d -o CMakeFiles/client.dir/encryption.cpp.o -c "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/encryption.cpp"
 
 CMakeFiles/client.dir/encryption.cpp.i: cmake_force
@@ -111,18 +97,32 @@ CMakeFiles/client.dir/encryption.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/encryption.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/encryption.cpp" -o CMakeFiles/client.dir/encryption.cpp.s
 
+CMakeFiles/client.dir/cksum_new.cpp.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/cksum_new.cpp.o: cksum_new.cpp
+CMakeFiles/client.dir/cksum_new.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/itamaryuran/Desktop/School/Defensive programming /project/client/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/cksum_new.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/cksum_new.cpp.o -MF CMakeFiles/client.dir/cksum_new.cpp.o.d -o CMakeFiles/client.dir/cksum_new.cpp.o -c "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/cksum_new.cpp"
+
+CMakeFiles/client.dir/cksum_new.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client.dir/cksum_new.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/cksum_new.cpp" > CMakeFiles/client.dir/cksum_new.cpp.i
+
+CMakeFiles/client.dir/cksum_new.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/cksum_new.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/cksum_new.cpp" -o CMakeFiles/client.dir/cksum_new.cpp.s
+
 # Object files for target client
 client_OBJECTS = \
 "CMakeFiles/client.dir/client.cpp.o" \
-"CMakeFiles/client.dir/client_menu.cpp.o" \
-"CMakeFiles/client.dir/encryption.cpp.o"
+"CMakeFiles/client.dir/encryption.cpp.o" \
+"CMakeFiles/client.dir/cksum_new.cpp.o"
 
 # External object files for target client
 client_EXTERNAL_OBJECTS =
 
 client: CMakeFiles/client.dir/client.cpp.o
-client: CMakeFiles/client.dir/client_menu.cpp.o
 client: CMakeFiles/client.dir/encryption.cpp.o
+client: CMakeFiles/client.dir/cksum_new.cpp.o
 client: CMakeFiles/client.dir/build.make
 client: /usr/local/Cellar/boost/1.84.0_1/lib/libboost_system-mt.dylib
 client: /usr/local/Cellar/cryptopp/8.9.0/lib/libcryptopp.dylib

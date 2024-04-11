@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/cksum_new.cpp" "CMakeFiles/client.dir/cksum_new.cpp.o" "gcc" "CMakeFiles/client.dir/cksum_new.cpp.o.d"
   "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/client.cpp" "CMakeFiles/client.dir/client.cpp.o" "gcc" "CMakeFiles/client.dir/client.cpp.o.d"
-  "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/client_menu.cpp" "CMakeFiles/client.dir/client_menu.cpp.o" "gcc" "CMakeFiles/client.dir/client_menu.cpp.o.d"
   "/Users/itamaryuran/Desktop/School/Defensive programming /project/client/encryption.cpp" "CMakeFiles/client.dir/encryption.cpp.o" "gcc" "CMakeFiles/client.dir/encryption.cpp.o.d"
   )
 

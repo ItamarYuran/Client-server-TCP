@@ -1,13 +1,13 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+#include "client.hpp"
 #include "encryption.hpp"
 #include <iostream>
 #include <string>
 #include <boost/asio.hpp>
 #include <boost/array.hpp>
 #include <fstream> 
-#include <vector>
 #include <cstring>
 #include <cstdint>
 #include <sstream>
@@ -19,9 +19,17 @@
 #include <cryptopp/hex.h>
 #include <cryptopp/filters.h>
 #include <cryptopp/osrng.h>
-#include <fstream>
 #include <cmath>
 #include <zlib.h>
+#include <iostream>
+#include <cryptopp/rsa.h>
+#include <cryptopp/base64.h>
+#include <cryptopp/files.h>
+#include <cryptopp/filters.h>
+#include <cryptopp/osrng.h> 
+#include <vector>
+
+
 
 constexpr uint32_t MAX_PAYLOAD_SIZE = 1024; 
 
@@ -58,7 +66,6 @@ public:
     void sendRequest1025(const std::string& name);
     std::string receiveResponse();
 
-    // Method to read user details from the file
     bool readUserInfoFromFile(const std::string& filename);
     void readInstructions(const std::string& filename);
 
@@ -69,9 +76,9 @@ public:
     Response parseResponse(const std::string& responseData);
     std::string concatenateData(const std::vector<std::string>& data);
 
-    void writeUsernameToFile(const std::string& username);
-    void writeUuidToFile(const std::string& uuid);
-    void writePrivateKeyToFile(const std::string& privateKey);
+    
+    void writeMeFile(const std::string& stringz);
+    
 
 
     std::string getUsername() const { return username_; }
@@ -91,8 +98,14 @@ public:
     void setPort(int port) { port_ = port; }
     void setFileToSend(const std::string& file_to_send) { file_to_send_ = file_to_send; }
         
-    void sendFileToServer();
-    uint32_t compute_checksum(const std::string& data);
+    int sendFileToServer();
+    void caseOne();
+    void caseTwo();
+    uint32_t computeChecksum(const std::string& data);
+    void displayMenu();
+
+
+
 
 
 
@@ -112,6 +125,8 @@ private:
 
 
 };
+
+std::string readfile(std::string fname);
 std::vector<uint8_t> hexToBytes(const std::string& hex);
 std::string padString(const std::string& str, size_t desiredLength);
 std::string unpadString(const std::string& str);

@@ -1,4 +1,6 @@
-#include "client.hpp"  // Include the client header file
+#include "client.hpp" 
+using namespace std;
+using namespace CryptoPP;
 
 Client::Client(boost::asio::io_context& io_context)
     : socket_(io_context), resolver_(io_context) {
@@ -30,14 +32,12 @@ void Client::connect(const std::string& server_ip,int port) {
 }
 
 void Client::sendRequest(int requestCode, const std::string& requestData) {
-    // Construct the header
 
     std::string header(23, 0); // 23 bytes header
     std::memcpy(&header[0], uuid_.c_str(), std::min(uuid_.size(), static_cast<size_t>(16)));
     header[16] = 24; // Version
-    header[17] = requestCode & 0xFF; // Request code (low byte)
-    header[18] = (requestCode >> 8) & 0xFF; // Request code (high byte)
-    // Calculate payload size
+    header[17] = requestCode & 0xFF; 
+    header[18] = (requestCode >> 8) & 0xFF; 
     uint32_t payloadSize = requestData.size();
 
     // Fill payload size bytes in the header (big-endian)
@@ -46,11 +46,7 @@ void Client::sendRequest(int requestCode, const std::string& requestData) {
     header[21] = (payloadSize >> 16) & 0xFF;
     header[22] = (payloadSize >> 24) & 0xFF;
 
-    
-    // Construct the packet
     std::string packet = header + requestData;
-
-    // Send the packet to the server
     boost::asio::write(socket_, boost::asio::buffer(packet));
 }
 
@@ -65,6 +61,7 @@ std::string Client::receiveResponse() {
     }
     return std::string(buffer.data(), length);
 }
+
 std::string Client::concatenateData(const std::vector<std::string>& data) {
     std::ostringstream oss;
     for (const std::string& str : data) {
@@ -72,8 +69,6 @@ std::string Client::concatenateData(const std::vector<std::string>& data) {
     }
     return oss.str();
 }
-
-
 
 bool Client::readUserInfoFromFile(const std::string& filename) {
     std::ifstream file(filename);
@@ -104,22 +99,6 @@ bool Client::userInfoIsEmpty() const {
 }
 
 
-void Client::signUp(const std::string& filename) {
-    std::ofstream file(filename);
-    if (!file.is_open()) {
-        throw std::runtime_error("Unable to create file: " + filename);
-    }
-    std::cout << "Enter username: ";
-    std::getline(std::cin >> std::ws, username_);
-    std::cout << "Enter UUID: ";
-    std::getline(std::cin >> std::ws, uuid_);
-    std::cout << "Enter private key: ";
-    std::getline(std::cin >> std::ws, privateKey_);
-    file << username_ << '\n' << uuid_ << '\n' << privateKey_ << '\n';
-    std::cout << "Signed up successfully!" << std::endl;
-}
-
-
 Response Client::parseResponse(const std::string& responseData) {
     Response response;
 
@@ -133,7 +112,7 @@ response.payloadSize = (static_cast<uint8_t>(responseData[6]) << 24) |
                         static_cast<uint8_t>(responseData[3]);
 
     response.payloadData.assign(responseData.begin() + 7, responseData.end());
-        // Extract payload data
+    
     response.payloadData.assign(responseData.begin() + 7, responseData.end());
 
     // Parse payload data based on response code
@@ -160,18 +139,12 @@ response.payloadSize = (static_cast<uint8_t>(responseData[6]) << 24) |
 
     }    }
 
-    std::cout << " response.contentSize" <<  response.contentSize << std::endl;
-        std::cout << "response.uuid " << response.uuid << std::endl;
-    std::cout << "response.fileName: " << response.fileName << std::endl;
-    std::cout << "Checksum: " << response.checksum << std::endl;
-
-
     if (response.code == 1604) {
             response.uuid = std::string(response.payloadData.begin(), response.payloadData.begin() + 15);
     }
     if (response.code == 1605) {
         response.uuid = std::string(response.payloadData.begin(), response.payloadData.begin() + 15);
-        response.encryptedKey = std::string(response.payloadData.begin() + 16, response.payloadData.end());    
+        response.encryptedKey = std::string(response.payloadData.begin() + 16, response.payloadData.end());   
     }
     if (response.code == 1606) {
             response.uuid = std::string(response.payloadData.begin(), response.payloadData.begin() + 15);
@@ -179,24 +152,13 @@ response.payloadSize = (static_cast<uint8_t>(responseData[6]) << 24) |
     if (response.code == 1607) {
 
     }
-    //     if (response.code == 1602) {
-    //     // Assuming payload contains uuid followed by encrypted key
-    //     if (response.payloadData.size() >= 16) {
-    //         response.uuid = std::string(response.payloadData.begin(), response.payloadData.begin() + 15);
-    //     }
-    //     if (response.payloadData.size() >= 1) {////
-    //         response.encryptedKey = std::string(response.payloadData.begin() + 16, response.payloadData.end());
-    //     }
-    // }
-    // Add more conditions for other response codes if needed
-
 
     return response;
 }
 
 std::string padString(const std::string& str, size_t desiredLength) {
     if (str.length() >= desiredLength) {
-        return str.substr(0, desiredLength);  // Truncate if longer than desired length
+        return str.substr(0, desiredLength); 
     } else {
         return str + std::string(desiredLength - str.length(), '\0');  
     }
@@ -210,6 +172,7 @@ std::string unpadString(const std::string& str) {
         return str;  // No padding found, return the original string
     }
 }
+
 std::string bytesToHexString(const std::vector<uint8_t>& bytes) {
     std::stringstream ss;
     ss << std::hex << std::setfill('0');
@@ -218,9 +181,6 @@ std::string bytesToHexString(const std::vector<uint8_t>& bytes) {
     }
     return ss.str();
 }
-
-
-
 
 std::vector<uint8_t> hexToBytes(const std::string& hex) {
     std::vector<uint8_t> bytes;
@@ -232,174 +192,241 @@ std::vector<uint8_t> hexToBytes(const std::string& hex) {
     return bytes;
 }
 
+void Client::writeMeFile(const std::string& stringz) {
+    std::ofstream outFile("me.info", std::ios::app);  // Open in append mode
 
-void Client::writeUsernameToFile(const std::string& username) {
-    std::ifstream inFile("me.info");
-    std::ofstream outFile("me.info.tmp");
-
-    if (!inFile || !outFile) {
+    if (!outFile) {
         std::cerr << "Failed to open file for writing: me.info" << std::endl;
         return;
     }
-
-    // Write the new username to the first line
-    outFile << username << std::endl;
-
-    // Copy the rest of the lines from the input file to the temporary file
-    std::string line;
-    while (std::getline(inFile, line)) {
-        if (!line.empty()) {  // Skip empty lines
-            outFile << line << std::endl;
-        }
-    }
-
-    // Close the files
-    inFile.close();
+    
+    outFile << stringz << std::endl;
     outFile.close();
-
-    // Replace the original file with the temporary file
-    std::remove("me.info");
-    std::rename("me.info.tmp", "me.info");
 }
 
-void Client::writeUuidToFile(const std::string& uuid) {
-    std::ifstream inFile("me.info");
-    std::ofstream outFile("me.info.tmp");
 
-    if (!inFile || !outFile) {
-        std::cerr << "Failed to open file for writing: me.info" << std::endl;
-        return;
-    }
+void Client::caseOne(){
 
-    // Write the new UUID to the second line
-    std::string line;
-    for (int i = 0; i < 2; ++i) {
-        if (!std::getline(inFile, line)) {
-            std::cerr << "File is not in the expected format" << std::endl;
-            inFile.close();
-            outFile.close();
-            return;
-        }
-        outFile << line << std::endl;
-    }
-    outFile << uuid << std::endl;
+uint16_t code = 1026;
+// Generate RSA key pair
+RSA::PrivateKey rsaPrivateKey;
+RSA::PublicKey rsaPublicKey;
+AutoSeededRandomPool rng;
 
-    // Copy the rest of the lines from the input file to the temporary file
-    while (std::getline(inFile, line)) {
-        if (!line.empty()) {  // Skip empty lines
-            outFile << line << std::endl;
-        }
-    }
+rsaPrivateKey.GenerateRandomWithKeySize(rng, 1024);
+rsaPublicKey = RSA::PublicKey(rsaPrivateKey);
 
-    // Close the files
-    inFile.close();
-    outFile.close();
+// Serialize the public key into a string
+std::string publicKeyStr;
+StringSink sink(publicKeyStr);
+rsaPublicKey.DEREncode(sink);
 
-    // Replace the original file with the temporary file
-    std::remove("me.info");
-    std::rename("me.info.tmp", "me.info");
+
+std::string publicKeyBase64;
+StringSource(publicKeyStr, true,new CryptoPP::Base64Encoder(new StringSink(publicKeyBase64),false ));
+
+
+std::string privateKeyStr;
+StringSink sinkPrivate(privateKeyStr);
+rsaPrivateKey.DEREncode(sinkPrivate);
+
+std::string privateKeyBase64;
+StringSource(privateKeyStr, true, new CryptoPP::Base64Encoder(new StringSink(privateKeyBase64),false));
+writeMeFile(privateKeyBase64);
+
+setPrivateKey(privateKeyBase64);
+std::string padname = padString(getUsername(), 255);
+std::vector<std::string> inputData = {padname, publicKeyStr};
+std::string req = concatenateData(inputData);
+sendRequest(code, req);
+
+std::string responseData = receiveResponse();
+Response response = parseResponse(responseData);
+
+
+std::string decrypted_symetric = Encryption::rsaDecrypt(response.encryptedKey, rsaPrivateKey);
+
+setSymetricKey(decrypted_symetric);
+std::cout << std::endl;
+
 }
 
-void Client::writePrivateKeyToFile(const std::string& privateKey) {
-    std::ifstream inFile("me.info");
-    std::ofstream outFile("me.info.tmp");
 
-    if (!inFile || !outFile) {
-        std::cerr << "Failed to open file for writing: me.info" << std::endl;
-        return;
+void Client::caseTwo(){
+
+    uint16_t code = 1027;
+    sendRequest(code,getUsername());
+
+    std::string responseData = receiveResponse();
+    Response response = parseResponse(responseData);
+    if (response.code== 1605){
+        setSymetricKey(response.encryptedKey);
+        std::cout<<"reconnected"<<std::endl;
+    }
+    else{
+        std::cout<<"reconnection faild"<<std::endl;
     }
 
-    // Write the new private key to the third line
-    std::string line;
-    for (int i = 0; i < 3; ++i) {
-        if (!std::getline(inFile, line)) {
-            std::cerr << "File is not in the expected format" << std::endl;
-            inFile.close();
-            outFile.close();
-            return;
-        }
-        outFile << line << std::endl;
-    }
-    outFile << privateKey << std::endl;
-
-    // Copy the rest of the lines from the input file to the temporary file
-    while (std::getline(inFile, line)) {
-        if (!line.empty()) {  // Skip empty lines
-            outFile << line << std::endl;
-        }
-    }
-
-    // Close the files
-    inFile.close();
-    outFile.close();
-
-    // Replace the original file with the temporary file
-    std::remove("me.info");
-    std::rename("me.info.tmp", "me.info");
 }
 
-void Client::sendFileToServer() {
-    // Read the file content
+void Client::displayMenu() {
+    cout << "Menu:" << endl;
+    cout << "[1] Send server public key" << endl;
+    cout << "[2] Reconnect" << endl;
+    cout << "[3] Send server file" << endl;
+    cout << "[4] Exit" << endl;
+    cout << "Enter your choice: ";
+}
+
+int Client::sendFileToServer() {
     std::ifstream file(getFileToSend(), std::ios::binary | std::ios::ate);
     if (!file.is_open()) {
         std::cerr << "Failed to open file: " << getFileToSend() << std::endl;
-        return;
+        return 0;
     }
 
     std::streamsize fileSize = file.tellg();
     file.seekg(0, std::ios::beg);
-
-    // Set maximum chunk size to fit in one packet
     const uint32_t maxChunkSize = MAX_PAYLOAD_SIZE - sizeof(uint16_t) - sizeof(uint16_t) - sizeof(uint32_t) - 255;
 
-    // Calculate total number of chunks needed
     uint16_t totalChunks = static_cast<uint16_t>(std::ceil(static_cast<double>(fileSize) / maxChunkSize));
 
+    std::string fileContent;
+    uint32_t totalChecksum = 0;
+
     for (uint16_t chunkNumber = 0; chunkNumber < totalChunks; ++chunkNumber) {
-        // Read chunk of file content
+        
         std::vector<char> chunk(maxChunkSize);
         file.read(chunk.data(), maxChunkSize);
         uint32_t chunkSize = static_cast<uint32_t>(file.gcount());
 
-        // Encrypt the chunk
+        fileContent.append(chunk.data(), chunkSize);
+
+        uint32_t computedChecksum = Client::computeChecksum(std::string(chunk.data(), chunkSize));
+        totalChecksum += computedChecksum;
+
         std::string encryptedChunk = Encryption::aesEncrypt(std::string(chunk.data(), chunkSize), getSymetricKey());
 
-        // Prepare the request data for this chunk
         uint32_t contentSize = encryptedChunk.size();
         uint32_t originalFileSize = fileSize;
         uint16_t packetNumber = chunkNumber + 1;
         std::string fileName = getFileToSend();
         std::string requestData;
 
-        // Add content size
         requestData.append(reinterpret_cast<const char*>(&contentSize), sizeof(contentSize));
-
-        // Add original file size
         requestData.append(reinterpret_cast<const char*>(&originalFileSize), sizeof(originalFileSize));
-
-        // Add packet number
         requestData.append(reinterpret_cast<const char*>(&packetNumber), sizeof(packetNumber));
-
-        // Add total packets
         requestData.append(reinterpret_cast<const char*>(&totalChunks), sizeof(totalChunks));
-
-        // Add file name with padding
         fileName.resize(255, '\0');
         requestData.append(fileName);
-
-        // Add message content (encrypted file chunk)
         requestData.append(encryptedChunk);
 
         // Send the request to the server
         sendRequest(1028, requestData);
     }
 
+    // Close the file
     file.close();
+
+    // Calculate checksum for the whole file
+    std::string fileChecksumData = readfile(getFileToSend());
+    std::size_t delimiterPos = fileChecksumData.find('\t');
+    uint32_t totalFileChecksum = std::stoul(fileChecksumData.substr(0, delimiterPos));
+
+    std::string responseData = receiveResponse();
+    Response response = parseResponse(responseData);
+
+    if (response.checksum != totalFileChecksum) {
+        std::cerr << "Checksum mismatch for the whole file" << std::endl;
+        return 0;
+    } else {
+        std::cout << "Checksum matched for the whole file" << std::endl;
+        return 1;
+    }
 }
 
-uint32_t Client::compute_checksum(const std::string& data) {
-    // Compute CRC32 checksum
-    uLong crc = crc32(0L, Z_NULL, 0);
-    crc = crc32(crc, (const Bytef*)data.c_str(), data.length());
-    return crc;
+
+uint32_t Client::computeChecksum(const std::string& data) {
+    return crc32(0L, reinterpret_cast<const Bytef*>(data.c_str()), static_cast<uInt>(data.size()));
+}
+
+int main() {
+    try {
+        boost::asio::io_context io_context;
+        
+        Client client(io_context);
+        client.readInstructions("transfer.info");
+        client.connect(client.getServerIP(),client.getPort());
+
+        if (client.readUserInfoFromFile("me.info") == false){
+            client.readInstructions("transfer.info");
+            uint16_t code = 1025;
+            client.writeMeFile(client.getUsername());
+            client.sendRequest(code, client.getUsername());
+            std::string res;
+            res = client.receiveResponse();
+            Response response = client.parseResponse(res);
+            client.setUuid(bytesToHexString(std::vector<uint8_t>(response.uuid.begin(), response.uuid.end())));
+            client.writeMeFile(client.getUuid());
+            
+
+        }
+
+        int choice;
+        bool signedUp = client.userInfoIsEmpty();
+
+        while (true) {
+            client.displayMenu();
+            cin >> choice;
+
+            switch (choice) {
+                    case 1:
+                    {
+                    client.caseOne();
+                    }
+                    break; 
+                    case 2:
+                    {
+                    client.caseTwo();
+                    }
+                    break; 
+
+            case 3:
+            {
+                int attempts = 0;
+                bool success = false;
+                while (attempts < 4) {
+                    int result = client.sendFileToServer();
+                    if (result == 1) {
+                        success = true;
+                        break;
+                    }
+                    attempts++;
+                }
+
+                if (success) {
+                    client.sendRequest(1029, client.getFileToSend());
+                } else {
+                    if (attempts == 3){
+                    client.sendRequest(1031, client.getFileToSend());
+                    }
+                    else{
+                    client.sendRequest(1030, client.getFileToSend());
+                    }
+                }
+
+            }
+            break;
+
+                case 4:
+                    cout << "Exiting program." << endl;
+                    return 0;
+                default:
+                    cout << "Invalid choice. Please enter a number between 1 and 5." << endl;
+            }
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+    return 0;
 }

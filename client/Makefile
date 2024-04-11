@@ -129,6 +129,30 @@ client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
 .PHONY : client/fast
 
+cksum_new.o: cksum_new.cpp.o
+.PHONY : cksum_new.o
+
+# target to build an object file
+cksum_new.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/cksum_new.cpp.o
+.PHONY : cksum_new.cpp.o
+
+cksum_new.i: cksum_new.cpp.i
+.PHONY : cksum_new.i
+
+# target to preprocess a source file
+cksum_new.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/cksum_new.cpp.i
+.PHONY : cksum_new.cpp.i
+
+cksum_new.s: cksum_new.cpp.s
+.PHONY : cksum_new.s
+
+# target to generate assembly for a file
+cksum_new.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/cksum_new.cpp.s
+.PHONY : cksum_new.cpp.s
+
 client.o: client.cpp.o
 .PHONY : client.o
 
@@ -152,30 +176,6 @@ client.s: client.cpp.s
 client.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client.cpp.s
 .PHONY : client.cpp.s
-
-client_menu.o: client_menu.cpp.o
-.PHONY : client_menu.o
-
-# target to build an object file
-client_menu.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client_menu.cpp.o
-.PHONY : client_menu.cpp.o
-
-client_menu.i: client_menu.cpp.i
-.PHONY : client_menu.i
-
-# target to preprocess a source file
-client_menu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client_menu.cpp.i
-.PHONY : client_menu.cpp.i
-
-client_menu.s: client_menu.cpp.s
-.PHONY : client_menu.s
-
-# target to generate assembly for a file
-client_menu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client_menu.cpp.s
-.PHONY : client_menu.cpp.s
 
 encryption.o: encryption.cpp.o
 .PHONY : encryption.o
@@ -210,12 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... client"
+	@echo "... cksum_new.o"
+	@echo "... cksum_new.i"
+	@echo "... cksum_new.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"
-	@echo "... client_menu.o"
-	@echo "... client_menu.i"
-	@echo "... client_menu.s"
 	@echo "... encryption.o"
 	@echo "... encryption.i"
 	@echo "... encryption.s"

@@ -6,7 +6,7 @@ CXX_DEFINES = -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB
 
 CXX_INCLUDES = -I/usr/local/include -I/usr/local/opt/zlib/include -I"/Users/itamaryuran/Desktop/School/Defensive programming /project/client" -I/usr/local/include/cryptopp -isystem /usr/local/Cellar/boost/1.84.0_1/include
 
-CXX_FLAGSx86_64 = -std=gnu++11 -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.4
+CXX_FLAGSx86_64 = -std=gnu++17 -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.4
 
-CXX_FLAGS = -std=gnu++11 -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.4
+CXX_FLAGS = -std=gnu++17 -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.4
 
